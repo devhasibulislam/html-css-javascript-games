@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Dubet Gaming</title>
+
+    <style type="text/tailwindcss">
+      @theme {
+        --color-clifford: #da373d;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="text-gray-600 body-font overflow-hidden">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="-my-8 divide-y-2 divide-gray-100">
+          <!-- Games Section Start -->
+          <div class="py-8 flex flex-wrap md:flex-nowrap">
+            <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+              <span class="font-semibold title-font text-gray-700"
+                >GAME 01</span
+              >
+              <span class="mt-1 text-gray-500 text-sm">Oct 01, 2024</span>
+            </div>
+            <div class="md:flex-grow">
+              <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">
+                Candy Crush Game
+              </h2>
+              <p class="leading-relaxed">
+                Enjoy the classic match-three puzzle game with a sweet twist!
+              </p>
+              <a
+                href="https://devhasibulislam.github.io/html-css-javascript-games/01-Candy-Crush-Game/"
+                class="text-indigo-500 inline-flex items-center mt-4"
+              >
+                Learn More
+                <svg
+                  class="w-4 h-4 ml-2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!-- Games Section End -->
+
+          <!-- More games dynamically generated -->
+          <div id="game-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const games = [
+        {
+          name: "Archery Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/02-Archery-Game/",
+          description:
+            "Aim, shoot, and test your archery skills in this challenging game.",
+        },
+        {
+          name: "Speed Typing Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/03-Speed-Typing-Game/",
+          description:
+            "Challenge yourself to type faster and improve your typing accuracy!",
+        },
+        {
+          name: "Breakout Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/04-Breakout-Game/",
+          description:
+            "Break all the bricks and advance through exciting levels!",
+        },
+        {
+          name: "Minesweeper Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/05-Minesweeper-Game/",
+          description:
+            "Uncover tiles and avoid mines in this classic logic-based game.",
+        },
+        {
+          name: "Tower Blocks",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/06-Tower-Blocks/",
+          description:
+            "Stack blocks as high as you can in this thrilling balance game.",
+        },
+        {
+          name: "Ping Pong Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/07-Ping-Pong-Game/",
+          description: "Experience the fast-paced excitement of table tennis!",
+        },
+        {
+          name: "Tetris Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/08-Tetris-Game/",
+          description:
+            "Rotate and place blocks to clear lines and score points.",
+        },
+        {
+          name: "Tilting Maze Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/09-Tilting-Maze-Game/",
+          description:
+            "Navigate the maze by tilting and find your way to the goal!",
+        },
+        {
+          name: "Memory Card Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/10-Memory-Card-Game/",
+          description: "Test your memory by matching pairs of cards.",
+        },
+        {
+          name: "Rock Paper Scissors",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/11-Rock-Paper-Scissors/",
+          description: "Play the classic hand game and beat your opponent!",
+        },
+        {
+          name: "Type Number Guessing Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/12-Type-Number-Guessing-Game/",
+          description: "Guess the number and challenge your prediction skills.",
+        },
+        {
+          name: "Tic Tac Toe",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/13-Tic-Tac-Toe/",
+          description:
+            "Play the classic Tic Tac Toe against a friend or the computer.",
+        },
+        {
+          name: "Snake Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/14-Snake-Game/",
+          description:
+            "Guide the snake to eat and grow without hitting obstacles.",
+        },
+        {
+          name: "Connect Four Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/15-Connect-Four-Game/",
+          description: "Drop your discs and connect four to win!",
+        },
+        {
+          name: "Insect Catch Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/16-Insect-Catch-Game/",
+          description: "Catch the insects as fast as you can in this fun game.",
+        },
+        {
+          name: "Typing Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/17-Typing-Game/",
+          description:
+            "Improve your typing skills with this engaging practice game.",
+        },
+        {
+          name: "Hangman Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/18-Hangman-Game/",
+          description: "Guess the word and save the man from hanging.",
+        },
+        {
+          name: "Flappy Bird Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/19-Flappy-Bird-Game/",
+          description: "Guide the bird through pipes without crashing.",
+        },
+        {
+          name: "Crossy Road Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/20-Crossy-Road-Game/",
+          description: "Help your character cross roads and rivers safely.",
+        },
+        {
+          name: "2048 Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/21-2048-Game/",
+          description:
+            "Combine tiles to reach the number 2048 in this addictive puzzle.",
+        },
+        {
+          name: "Dice Roll Simulator",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/22-Dice-Roll-Simulator/",
+          description:
+            "Roll the dice and see the outcome in this simulation game.",
+        },
+        {
+          name: "Shape Clicker Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/23-Shape-Clicker-Game/",
+          description: "Click the shapes as they appear to score points.",
+        },
+        {
+          name: "Speak Number Guessing Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/25-Speak-Number-Guessing-Game/",
+          description:
+            "Guess the number by speaking and test voice recognition!",
+        },
+        {
+          name: "Fruit Slicer Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/26-Fruit-Slicer-Game/",
+          description:
+            "Slice the fruits and avoid the bombs in this arcade game.",
+        },
+        {
+          name: "Quiz Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/27-Quiz-Game/",
+          description: "Test your knowledge with challenging quiz questions.",
+        },
+        {
+          name: "Emoji Catcher Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/28-Emoji-Catcher-Game/",
+          description: "Catch the emojis and rack up the points!",
+        },
+        {
+          name: "Whack-A-Mole Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/29-Whack-A-Mole-Game/",
+          description: "Whack the moles as they pop up for a high score.",
+        },
+        {
+          name: "Simon Says Game",
+          url: "https://devhasibulislam.github.io/html-css-javascript-games/30-Simon-Says-Game/",
+          description: "Follow the sequence and test your memory skills.",
+        },
+      ];
+
+      const gameList = document.getElementById("game-list");
+
+      games.forEach((game, index) => {
+        const gameHTML = `
+          <div class="py-8 flex flex-wrap md:flex-nowrap">
+            <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+              <span class="font-semibold title-font text-gray-700">GAME ${
+                index + 2
+              }</span>
+              <span class="mt-1 text-gray-500 text-sm">Oct 02, 2024</span>
+            </div>
+            <div class="md:flex-grow">
+              <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">${
+                game.name
+              }</h2>
+              <p class="leading-relaxed">${game.description}</p>
+              <a href="${
+                game.url
+              }" class="text-indigo-500 inline-flex items-center mt-4">
+                Learn More
+                <svg
+                  class="w-4 h-4 ml-2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        `;
+        gameList.innerHTML += gameHTML;
+      });
+    </script>
+  </body>
+</html>
